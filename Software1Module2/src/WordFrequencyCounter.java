@@ -15,17 +15,23 @@ public class WordFrequencyCounter {
 			e.printStackTrace();
 		}
 
-		List<String> wordList = Arrays.asList(file.split(" "));
+		List<String> wordList = Arrays.asList(file.split("\r|\n| "));
 		
 		Set<String> wordsSet = new HashSet<String>(wordList); 
 		for (String words : wordsSet) {
 			
 			words = words.replaceAll("\\p{P}", "");
-			words = words.replaceAll("[^a-zA-Z]\\s\\W", " ");
+		//	words = words.replaceAll("\\r", "-");
+		//	words = words.replaceAll("\\n", "-");
+		//	//words = words.replaceAll("[^a-zA-Z]\\s\\W", " ");
+			//words = words.replaceAll("\\s+", "\n");
+			
 			words = words.toLowerCase();
 			
-		//	Collections.sort(wordList, Collections.reverseOrder());
+			//words.split("-");
+			//System.out.println(words + " - ");
 			
+			//Collections.sort(wordList, Collections.reverseOrder());
 		System.out.println(words + " - " + Collections.frequency(wordList, words));
 		}
 	}
